@@ -1,0 +1,15 @@
+{
+  "id": "generated uid",
+  "uploadedBy": "123",
+  "createdAt": 123,
+  "timesUsed": 0,
+  "name": "test",
+  "category": "cake",
+  "ingredients": "some markdown blob",
+  "steps": "some markdown blob",
+  "yield": "string",
+  "picture": "http://resource.url",
+  "author": "give credit",
+  "link": "link to original",
+  "notes": "some markdown blob"
+}
