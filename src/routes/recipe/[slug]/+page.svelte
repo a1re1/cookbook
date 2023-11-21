@@ -1,6 +1,7 @@
 <script language="ts">
 	import { page } from '$app/stores'
-	import RecipeView from "../../../lib/recipe-view.svelte";
+	import RecipeView from "$lib/recipe-view.svelte";
+	import Nav from "$lib/nav.svelte";
 
 	$: console.log($page.params.slug);
 
@@ -45,6 +46,7 @@ const save = (data) => {
 </script>
 
 <main>
+	<Nav/>
 	<RecipeView markdown={markdown} save={save}/>
 </main>
 
