@@ -5,7 +5,7 @@
 	import Nav from '$lib/nav.svelte';
 	import RecipePreview from '$lib/recipe-preview.svelte';
 	let markdown = '# ';
-	$: markdown += $page.params.slug;
+	$: markdown += $page.params.slug + "\n***";
 
 	let nItems = 30;
 	$: items = [...Array(nItems).keys()];

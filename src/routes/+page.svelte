@@ -5,7 +5,7 @@
 	const homePage = `
 # The Whitehurst Cookbook
 ---
-### [All Recipes](./all-recipes)
+### [All Recipes](./category/All)
 ---
 ### Categories
 - [Desserts](./category/Desserts)

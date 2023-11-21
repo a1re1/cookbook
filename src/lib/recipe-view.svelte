@@ -1,8 +1,5 @@
 <script language="ts">
-
-    export let markdown;
-    export let save = (data) => {};
-
+	import { insert } from '@milkdown/utils';
 	import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx } from '@milkdown/core';
 	import {
 		commonmark
@@ -18,6 +15,14 @@
 	import { emoji } from '@milkdown/plugin-emoji';
 	import { upload } from '@milkdown/plugin-upload';
 	import Toolbar from './toolbar.svelte';
+
+	export let content;
+    export let save = (data) => {};
+
+	// load data from api
+	$: if (_editor) _editor.action(insert(content));
+
+	let markdown = content;
 
 	let editMode = false;
 	const toggleEditMode = (val) => { 
