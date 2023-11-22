@@ -4,21 +4,19 @@
 	import Nav from '$lib/nav.svelte';
 	import { fetchRecipe } from '$lib/api-client.js';
 
-	$: console.log($page.params.slug);
-
 	let content = '';
 
 	$: fetchRecipe($page.params.slug).then((recipe) => {
-		console.log(recipe);
 		if (recipe.err) {
 			content = "Recipe not found"
 		} else {
-			content = recipe.name;
+			recipe.content = recipe.content.reduce((acc, curr) => acc + curr, '');
+			console.log(recipe.content)
+			content = recipe.content;
 		}
 	});
 
 	const save = (data) => {
-		console.log(data);
 	};
 </script>
 
