@@ -17,10 +17,7 @@
 	import Toolbar from './toolbar.svelte';
 
 	export let content;
-    export let save = (data) => {};
-
-	// load data from api
-	$: if (_editor) _editor.action(insert(content));
+    export let save;
 
 	let markdown = content;
 

@@ -2,21 +2,24 @@
 	import { page } from '$app/stores';
 	import RecipeView from '$lib/recipe-view.svelte';
 	import Nav from '$lib/nav.svelte';
-	import { fetchRecipe } from '$lib/api-client.js';
+	import { saveRecipe } from '$lib/api-client.js';
 
-	let content = '';
+	export let data;
+	const recipe = data.recipeResponse;
+	console.log(recipe)
+	let content = recipe.content
+		? recipe.content.reduce 
+			? recipe.content.reduce((acc, curr) => acc + curr, '') 
+			: recipe.content
+		: "Recipe not found";
 
-	$: fetchRecipe($page.params.slug).then((recipe) => {
-		if (recipe.err) {
-			content = "Recipe not found"
-		} else {
-			recipe.content = recipe.content.reduce((acc, curr) => acc + curr, '');
-			console.log(recipe.content)
-			content = recipe.content;
-		}
-	});
-
-	const save = (data) => {
+	const save = (content) => {
+		saveRecipe(fetch, data.id, 
+			{
+				id: data.id,
+				content: content,
+			}
+		);
 	};
 </script>
 
