@@ -3,19 +3,33 @@
 	import RecipeView from '$lib/recipe-view.svelte';
 	import Nav from '$lib/nav.svelte';
 	import { saveRecipe } from '$lib/api-client.js';
+	import { fetchRecipe } from '$lib/api-client.js';
+	import { onMount } from 'svelte';
 
 	export let data;
-	const recipe = data.recipeResponse;
-	let content = recipe.content
-		? recipe.content.reduce
-			? recipe.content.reduce((acc, curr) => acc + curr, '')
-			: recipe.content
-		: '# Add your recipe here!';
-	let editMode = recipe.content == null;
+
+	let content = '';
+	let id;
+
+	onMount(() => {
+		const params = new URLSearchParams(window.location.search);
+		id = params.get('id');
+	});
+
+	$: id != null ? fetchRecipe(fetch, id).then((recipe) => {
+		console.log(recipe);
+		if (recipe.err) {
+			content = "# Add your recipe here!"
+		} else {
+			content = recipe.content;
+		}
+	}) : null;
+
+	let editMode = false;
 
 	const save = (content) => {
 		let body = {
-			id: data.id,
+			id: id,
 			title: null,
 			image: null,
 			description: null,
@@ -51,10 +65,10 @@
 			body.image = firstImage;
 			body.description = description;
 		} catch (error) {
-			console.log('Error parsing JSON: ', element);
-			console.log(element, error);
+			console.error('Error parsing JSON: ', content);
+			console.error(content, error);
 		}
-		saveRecipe(fetch, data.id, body);
+		saveRecipe(fetch, id, body);
 	};
 </script>
 

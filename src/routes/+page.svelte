@@ -5,19 +5,19 @@
 	const homePage = `
 # The Whitehurst Cookbook
 ---
-### [All Recipes](./category/All)
+### [All Recipes](./category?category=All)
 ---
 ### [Search 🔍](./search)
 ---
 ### Categories
-#### [Desserts](./category/Desserts)
-#### [Soups](./category/Soups)
-#### [Salads](./category/Salads)
-#### [Vegetables](./category/Vegetables)
-#### [Mains](./category/Mains)
-#### [Appetizers](./category/Appetizers)
-#### [Sauces](./category/Sauces)
-#### [Breads](./category/Breads)
+#### [Desserts](./category?category=Desserts)
+#### [Soups](./category?category=Soups)
+#### [Salads](./category?category=Salads)
+#### [Vegetables](./category?category=Vegetables)
+#### [Mains](./category?category=Mains)
+#### [Appetizers](./category?category=Appetizers)
+#### [Sauces](./category?category=Sauces)
+#### [Breads](./category?category=Breads)
 ---
 ### [+ New recipe](./new-recipe)
 	`;

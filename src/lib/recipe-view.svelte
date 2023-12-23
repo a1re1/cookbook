@@ -1,4 +1,5 @@
 <script language="ts">
+	import { insert } from '@milkdown/utils';
 	import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx } from '@milkdown/core';
 	import { commonmark } from '@milkdown/preset-commonmark';
 	import { nord } from '@milkdown/theme-nord';
@@ -16,6 +17,13 @@
 	export let content;
 	export let save;
 	export let editMode = false;
+
+	$: if (_editor) s(_editor.action(insert(content)));
+
+	const s = (echo) => {
+		window.scrollTo(0, 0);
+		return echo;
+	}
 
 	let markdown = content;
 
