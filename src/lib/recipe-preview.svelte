@@ -21,7 +21,7 @@
 </script>
 
 <div>
-	<a href={'/cookbook/recipe?id=' + id}>
+	<a href={'/recipe?id=' + id}>
 		{#if image != null && image.length > 0}
 			<img src={image} alt="preview" />
 		{:else}
@@ -30,7 +30,7 @@
 			</div>
 		{/if}
 	</a>
-	<h3><a href={'/cookbook/recipe?id=' + id}>{title}</a></h3>
+	<h3><a href={'/recipe?id=' + id}>{title}</a></h3>
 	<p>{description}</p>
 </div>
 

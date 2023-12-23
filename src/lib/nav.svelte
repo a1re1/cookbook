@@ -4,7 +4,7 @@
 	}
 
 	function goHome() {
-		window.location.href = '/cookbook/';
+		window.location.href = '/';
 	}
 </script>
 
