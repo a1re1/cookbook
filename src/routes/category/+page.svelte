@@ -1,7 +1,6 @@
 <script language="ts">
 	import { page } from '$app/stores';
 	import Masonry from 'svelte-bricks';
-	import ReadOnlyMd from '$lib/read-only-md.svelte';
 	import Nav from '$lib/nav.svelte';
 	import RecipePreview from '$lib/recipe-preview.svelte';
 	import MiniSearch from 'minisearch';

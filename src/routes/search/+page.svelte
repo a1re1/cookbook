@@ -1,7 +1,6 @@
 <script language="ts">
 	import { page } from '$app/stores';
 	import Masonry from 'svelte-bricks';
-	import ReadOnlyMd from '$lib/read-only-md.svelte';
 	import Nav from '$lib/nav.svelte';
 	import RecipePreview from '$lib/recipe-preview.svelte';
 	import MiniSearch from 'minisearch';
@@ -32,7 +31,6 @@
 
 	let searchTerm = '';
 	const runSearch = (term) => {
-		console.log(term);
 		if (term == '') {
 			return;
 		}
@@ -40,11 +38,10 @@
 		let results = miniSearch.search(term, {
 			prefix: true,
 			boost: { title: 2 }
-		});
-		results.forEach((item) => {
-			items.push(item);
-		});
-		console.log(items);
+		}).slice(0, 20);
+		for (let i = 0; i < results.length; i++) {
+			items.push(results[i]);
+		}
 	};
 	$: runSearch(searchTerm);
 
