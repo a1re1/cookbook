@@ -1,0 +1,1 @@
+const n="https://cook-book-recipes-a6s3q6c6gq-uc.a.run.app/",r=(e,t)=>s(e,`recipe/${t}`).then(o=>o.json()),p=(e,t,o)=>c(e,`recipe/${t}`,o),a=e=>s(e,"search/").then(t=>t.json());function s(e,t){return e(n+t)}function c(e,t,o){return e(n+t,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(o)})}export{r as f,a as g,p as s};
