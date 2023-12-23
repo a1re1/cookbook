@@ -7,6 +7,8 @@
 ---
 ### [All Recipes](./category/All)
 ---
+### [Search 🔍](./search)
+---
 ### Categories
 #### [Desserts](./category/Desserts)
 #### [Soups](./category/Soups)
