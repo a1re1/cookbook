@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import RecipeView from '$lib/recipe-view.svelte';
 	import Nav from '$lib/nav.svelte';
-	import { saveRecipe } from '$lib/api-client.js';
+	import { saveRecipe, refreshCache } from '$lib/api-client.js';
 	import { fetchRecipe } from '$lib/api-client.js';
 	import { onMount } from 'svelte';
 
@@ -68,7 +68,12 @@
 			console.error('Error parsing JSON: ', content);
 			console.error(content, error);
 		}
-		saveRecipe(fetch, id, body);
+		saveRecipe(fetch, id, body).then((_ignored) => {
+			console.log("Saved recipe!");
+			refreshCache(fetch).then(() => {
+				console.log("Refreshed cache!");
+			});
+		});
 	};
 </script>
 
