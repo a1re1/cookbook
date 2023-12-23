@@ -3,6 +3,6 @@
 
 	onMount(() => {
 		// redirect to recipe page with random id
-		window.location.replace('/recipe?id=' + Math.random().toString(36).substring(2, 15));
+		window.location.replace('/cookbook/recipe?id=' + Math.random().toString(36).substring(2, 15));
 	});
 </script>
