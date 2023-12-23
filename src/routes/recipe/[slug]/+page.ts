@@ -1,9 +1,9 @@
 import { fetchRecipe } from '$lib/api-client.js';
 
-export const prerender = true;
+export const prerender = false;
 
 export async function load({ fetch, params }) {
-    return {
+	return {
 		recipeResponse: await fetchRecipe(fetch, params.slug),
 		id: params.slug
 	};

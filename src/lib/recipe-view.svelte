@@ -1,8 +1,6 @@
 <script language="ts">
 	import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx } from '@milkdown/core';
-	import {
-		commonmark
-	} from '@milkdown/preset-commonmark';
+	import { commonmark } from '@milkdown/preset-commonmark';
 	import { nord } from '@milkdown/theme-nord';
 	import { clipboard } from '@milkdown/plugin-clipboard';
 	import { cursor } from '@milkdown/plugin-cursor';
@@ -16,15 +14,15 @@
 	import Toolbar from './toolbar.svelte';
 
 	export let content;
-    export let save;
+	export let save;
 	export let editMode = false;
 
 	let markdown = content;
 
-	const toggleEditMode = (val) => { 
+	const toggleEditMode = (val) => {
 		editMode = val;
 		if (!val) {
-            save(markdown);
+			save(markdown);
 		}
 	};
 	const editable = () => editMode;
@@ -66,7 +64,7 @@
 		<div class="absolute top-1 h-10 w-full place-content-center">
 			<div class="prose mx-auto flex place-content-center">
 				<div use:editor />
-				<Toolbar _editor={_editor} editBarMode={editMode} toggleEditMode={toggleEditMode} />
+				<Toolbar {_editor} editBarMode={editMode} {toggleEditMode} />
 			</div>
 		</div>
 	</div>

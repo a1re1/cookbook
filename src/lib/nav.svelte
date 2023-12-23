@@ -12,7 +12,7 @@
 	<button on:click={goBack} style="">
 		<span class="material-symbols-outlined">undo</span>
 	</button>
-    <button on:click={goHome} style="position:absolute; right:0">
+	<button on:click={goHome} style="position:absolute; right:0">
 		<span class="material-symbols-outlined">home</span>
 	</button>
 </div>

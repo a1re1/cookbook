@@ -1,7 +1,7 @@
 <script>
 	// @ts-ignore
 	export let _editor;
-    export let toggleEditMode = (val) => {};
+	export let toggleEditMode = (val) => {};
 	import { callCommand } from '@milkdown/utils';
 	import {
 		toggleEmphasisCommand,
@@ -15,10 +15,10 @@
 	// @ts-ignore
 	const editable = () => editBarMode;
 
-    export let editBarMode = false;
+	export let editBarMode = false;
 	function toggleEditBar() {
 		editBarMode = !editBarMode;
-        toggleEditMode(editBarMode);
+		toggleEditMode(editBarMode);
 	}
 
 	// @ts-ignore

@@ -1,10 +1,10 @@
 import { getSearchIdx } from '$lib/api-client.js';
 
-export const prerender = true;
+export const prerender = false;
 
 export async function load({ params, fetch }) {
-  return {
+	return {
 		idx: await getSearchIdx(fetch),
-    category: params.slug 
+		category: params.slug
 	};
 }

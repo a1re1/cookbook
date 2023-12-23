@@ -4,40 +4,42 @@
 	import ReadOnlyMd from '$lib/read-only-md.svelte';
 	import Nav from '$lib/nav.svelte';
 	import RecipePreview from '$lib/recipe-preview.svelte';
-	import MiniSearch from 'minisearch'
+	import MiniSearch from 'minisearch';
 
 	export let data;
-	let markdown = '# ' + data.category + "\n***";
+	let markdown = '# ' + data.category + '\n***';
 
 	let items = [];
-	let searchIdx = []
-	data.idx.forEach(element => {
+	let searchIdx = [];
+	data.idx.forEach((element) => {
 		if (element == null || element.length == 0) return;
 		try {
 			let recipeJson = JSON.parse(element);
-			if (!recipeJson.content) { return; }
+			if (!recipeJson.content) {
+				return;
+			}
 			searchIdx.push(recipeJson);
 		} catch (error) {
-			console.log("Error parsing JSON: ", element);
+			console.log('Error parsing JSON: ', element);
 			console.log(element, error);
 		}
 	});
 
-	if (data.category == "All") {
-		searchIdx.forEach(item => {
+	if (data.category == 'All') {
+		searchIdx.forEach((item) => {
 			items.push(item);
-		})
+		});
 	} else {
 		let miniSearch = new MiniSearch({
-  			fields: ['title', 'content', 'tags'], // fields to index for full-text search
-  			storeFields: ['title', 'image', 'description', 'tags'] // fields to return with search results
+			fields: ['title', 'content', 'tags'], // fields to index for full-text search
+			storeFields: ['title', 'image', 'description', 'tags'] // fields to return with search results
 		});
 		miniSearch.addAll(searchIdx);
 		let results = miniSearch.search(data.category, {
 			prefix: true,
 			boost: { title: 2 }
 		});
-		results.forEach(item => {
+		results.forEach((item) => {
 			items.push(item);
 		});
 	}
@@ -46,10 +48,15 @@
 
 <Nav />
 <ReadOnlyMd {markdown} />
-<br/>
+<br />
 <div class="itemWrapper">
 	<Masonry {items} {minColWidth} {maxColWidth} {gap} let:item>
-		<RecipePreview title={item.title} id={item.id} image={item.image} description={item.description}/>
+		<RecipePreview
+			title={item.title}
+			id={item.id}
+			image={item.image}
+			description={item.description}
+		/>
 	</Masonry>
 </div>
 

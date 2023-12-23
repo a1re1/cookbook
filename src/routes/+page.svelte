@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ReadOnlyMd from "$lib/read-only-md.svelte"
-	import Nav from "$lib/nav.svelte"
+	import ReadOnlyMd from '$lib/read-only-md.svelte';
+	import Nav from '$lib/nav.svelte';
 
 	const homePage = `
 # The Whitehurst Cookbook
@@ -20,10 +20,10 @@
 #### [Breads](./category/Breads)
 ---
 ### [+ New recipe](./new-recipe)
-	`
+	`;
 </script>
 
 <main>
-	<Nav/>
+	<Nav />
 	<ReadOnlyMd markdown={homePage} />
 </main>

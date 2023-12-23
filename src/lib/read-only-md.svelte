@@ -1,11 +1,8 @@
 <script language="ts">
-
-    export let markdown;
+	export let markdown;
 
 	import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx } from '@milkdown/core';
-	import {
-		commonmark
-	} from '@milkdown/preset-commonmark';
+	import { commonmark } from '@milkdown/preset-commonmark';
 	import { nord } from '@milkdown/theme-nord';
 	import { clipboard } from '@milkdown/plugin-clipboard';
 	import { cursor } from '@milkdown/plugin-cursor';
