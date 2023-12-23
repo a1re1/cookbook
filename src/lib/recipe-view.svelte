@@ -1,5 +1,4 @@
 <script language="ts">
-	import { insert } from '@milkdown/utils';
 	import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx } from '@milkdown/core';
 	import {
 		commonmark
@@ -10,7 +9,7 @@
 	import { history } from '@milkdown/plugin-history';
 	import { indent } from '@milkdown/plugin-indent';
 	import { listener, listenerCtx } from '@milkdown/plugin-listener';
-	import { prism, prismConfig } from '@milkdown/plugin-prism';
+	import { prism } from '@milkdown/plugin-prism';
 	import { trailing } from '@milkdown/plugin-trailing';
 	import { emoji } from '@milkdown/plugin-emoji';
 	import { upload } from '@milkdown/plugin-upload';
@@ -18,10 +17,10 @@
 
 	export let content;
     export let save;
+	export let editMode = false;
 
 	let markdown = content;
 
-	let editMode = false;
 	const toggleEditMode = (val) => { 
 		editMode = val;
 		if (!val) {
@@ -67,7 +66,7 @@
 		<div class="absolute top-1 h-10 w-full place-content-center">
 			<div class="prose mx-auto flex place-content-center">
 				<div use:editor />
-				<Toolbar _editor={_editor} toggleEditMode={toggleEditMode} />
+				<Toolbar _editor={_editor} editBarMode={editMode} toggleEditMode={toggleEditMode} />
 			</div>
 		</div>
 	</div>

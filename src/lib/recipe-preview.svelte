@@ -4,7 +4,7 @@
 	export let author = 'Recipe Author';
 	export let date = 'Recipe Date';
 	export let id = 'Recipe ID';
-	export let image;
+	export let image = null;
 
 	function chooseVector() {
 		const vectors = ['restaurant', 'restaurant_menu', 'lunch_dining', 'cake', 'icecream'];

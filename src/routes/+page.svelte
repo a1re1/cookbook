@@ -8,14 +8,16 @@
 ### [All Recipes](./category/All)
 ---
 ### Categories
-- [Desserts](./category/Desserts)
-- [Soups](./category/Soups)
-- [Salads](./category/Salads)
-- [Vegetables](./category/Vegetables)
-- [Mains](./category/Mains)
-- [Appetizers](./category/Appetizers)
-- [Sauces](./category/Sauces)
-- [Breads](./category/Breads)
+#### [Desserts](./category/Desserts)
+#### [Soups](./category/Soups)
+#### [Salads](./category/Salads)
+#### [Vegetables](./category/Vegetables)
+#### [Mains](./category/Mains)
+#### [Appetizers](./category/Appetizers)
+#### [Sauces](./category/Sauces)
+#### [Breads](./category/Breads)
+---
+### [+ New recipe](./new-recipe)
 	`
 </script>
 

@@ -64,6 +64,7 @@
 		"@milkdown/theme-nord": "^7.3.0",
 		"@milkdown/transformer": "^7.3.0",
 		"@milkdown/utils": "^7.3.0",
+		"minisearch": "^6.3.0",
 		"svelte-bricks": "^0.2.1"
 	}
 }

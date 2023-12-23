@@ -15,7 +15,7 @@
 	// @ts-ignore
 	const editable = () => editBarMode;
 
-    let editBarMode = false;
+    export let editBarMode = false;
 	function toggleEditBar() {
 		editBarMode = !editBarMode;
         toggleEditMode(editBarMode);
